@@ -1,4 +1,4 @@
-<?php               //On récupère le pseudo et on le stocke dans une variable
+<?php
 $bdd = new PDO('mysql:host=localhost;dbname=geomutton;charset=utf8', 'root', '');
 if(!isset($_POST['array1']))
 {
