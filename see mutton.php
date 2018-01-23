@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 
 <?php
-$bdd = new PDO('mysql:host=xxxxxxxxxxxxx;dbname=maxime1_favier;charset=utf8', 'xxxxxxxxxxx', 'xxxxxxxxxxxx');
+$bdd = new PDO('mysql:host=maxime1.favier.sql.free.fr;dbname=maxime1_favier;charset=utf8', 'xxxxxxx', 'xxxxx');
 ?>
 
 <html lang="fr">
 	<head>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
 		<meta charset="UTF-8" />
-		<title>Titre de votre page</title>
+		<title>Monitoring des moutons</title>
 		<style>
 			html, body {
 				height: 100%;
@@ -22,20 +22,22 @@ $bdd = new PDO('mysql:host=xxxxxxxxxxxxx;dbname=maxime1_favier;charset=utf8', 'x
 	</head>
 	
 	<body>
-	<script src="https://maps.googleapis.com/maps/api/js?key=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&libraries=drawing"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=xxxxxxxxxxxxxxxxxx&libraries=drawing"></script>
 		<div id="Carte"></div>
 
 		<script>
 			function initialize() {
 				var optionsCarte = {
-					zoom: 8,
-					center: {lat: 47.251037, lng: 0.786379},
-					mapTypeId: google.maps.MapTypeId.ROADMAP
+					zoom: 15,
+					center: new google.maps.LatLng(46.0001577,6.7202198,424),
+					mapTypeId: 'satellite'
 				}
 				var maCarte = new google.maps.Map( document.getElementById("Carte"), optionsCarte );
 				
+				
+				var zoneMarqueurs = new google.maps.LatLngBounds();
 
-						
+				// definition de la zone du champ
 				var tableauPointsPolygone = [
 				<?php
 					$reponse = $bdd->query('SELECT * FROM `area`');				
