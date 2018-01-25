@@ -1,19 +1,29 @@
 -- phpMyAdmin SQL Dump
--- version 3.1.5
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
--- Serveur: maxime1.favier.sql.free.fr
--- Généré le : Lun 22 Janvier 2018 à 14:43
--- Version du serveur: 5.0.83
--- Version de PHP: 5.3.9
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  sam. 20 jan. 2018 à 16:27
+-- Version du serveur :  5.7.19
+-- Version de PHP :  5.6.31
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données: `maxime1_favier`
+-- Base de données :  `geomutton`
 --
-CREATE DATABASE `maxime1_favier` DEFAULT CHARACTER SET ;
-USE `maxime1_favier`;
+DROP DATABASE IF EXISTS `geomutton`;
+CREATE DATABASE IF NOT EXISTS `geomutton` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `geomutton`;
 
 -- --------------------------------------------------------
 
@@ -21,20 +31,26 @@ USE `maxime1_favier`;
 -- Structure de la table `area`
 --
 
+DROP TABLE IF EXISTS `area`;
 CREATE TABLE IF NOT EXISTS `area` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `lat` float NOT NULL,
   `longi` float NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `area`
+-- Déchargement des données de la table `area`
 --
 
 INSERT INTO `area` (`id`, `lat`, `longi`) VALUES
-(1, 46.6494, 6.32812),
-(2, 44.6218, 8.12988),
-(3, 47.8721, 21.5332),
-(4, 49.3251, 12.5244);
+(1, 32.3721, 51.0088),
+(2, 32.4417, 51.0984),
+(3, 32.3898, 51.1153),
+(4, 32.3623, 51.0634),
+(5, 32.3379, 51.0741);
+COMMIT;
 
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

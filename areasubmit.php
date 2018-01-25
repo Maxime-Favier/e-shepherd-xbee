@@ -1,5 +1,5 @@
 <?php
-$bdd = new PDO('mysql:host=xxxxxxxxxxxxxxxxx;dbname=maxime1_favier;charset=utf8', 'xxxxxx', 'xxxxx');
+$bdd = new PDO('mysql:host=maxime1.favier.sql.free.fr;dbname=maxime1_favier;charset=utf8', 'maxime1.favier', 'xxxxxxxx');
 if(!isset($_POST['array1']))
 {
 	echo 'remplissez tous les champs';
@@ -21,4 +21,3 @@ else
 		));
 	}
 }
-
