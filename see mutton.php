@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-$bdd = new PDO('mysql:host=maxime1.favier.sql.free.fr;dbname=maxime1_favier;charset=utf8', 'maxime1.favier', 'xxxxxx');
+$bdd = new PDO('mysql:host=maxime1.favier.sql.free.fr;dbname=maxime1_favier;charset=utf8', 'xxxxx', 'xxxxx');
 ?>
 
 <html lang="fr">
@@ -22,7 +22,7 @@ $bdd = new PDO('mysql:host=maxime1.favier.sql.free.fr;dbname=maxime1_favier;char
 	</head>
 	
 	<body>
-	<script src="https://maps.googleapis.com/maps/api/js?key=xxxxxxxxxxxxxxxxxxxxxxxx&libraries=drawing"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=xxxxxxxxxxxxxxxxxxxx&libraries=drawing"></script>
 		<div id="Carte"></div>
 
 		<script>
@@ -40,8 +40,6 @@ $bdd = new PDO('mysql:host=maxime1.favier.sql.free.fr;dbname=maxime1_favier;char
 				var zoneMarqueurs = new google.maps.LatLngBounds();
 				// tableau des points
 				var tableauMarqueurs = [
-					{ lat:46.0001577, lng:6.7202198424 },
-					{ lat:46.0031677, lng: 6.7202198424 },
 					<?php
 						$reponse1 = $bdd->query('SELECT * FROM `positions`');
 						while ($donnees1 = $reponse1->fetch())

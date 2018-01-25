@@ -18,8 +18,9 @@
 				display:hidden;
 			}
 		</style>
-
-	<script src="https://maps.googleapis.com/maps/api/js?key=xxxxxxxxx&libraries=drawing"></script>
+	<!-- import de google map api -->
+	
+	<script src="https://maps.googleapis.com/maps/api/js?key=xxxxxxxxxxxx&libraries=drawing"></script>
 	
 	<script>
 	function postToURL(a,b,c){
@@ -31,14 +32,14 @@
 	</script>
 	
 	<script>
-	//This variable gets all coordinates of polygone 
+	//coordonnes du polygone
 	var coordinates = [];
 	//This variable saves polygon.
 	var polygons = [];
 	</script>
 
 	<script>
-	//save latitude and longitude to the polygons[] variable
+	//enregistre les coordonnes du polygone
 	function save_coordinates_to_array(polygon)
 	{
 		polygons.push(polygon);
@@ -68,9 +69,9 @@
 <script>
 function initialize()
 {
-    //Create map.
+    //definition de la map
     var map = new google.maps.Map(document.getElementById('Carte'), {zoom: 15, mapTypeId: 'satellite', center: new google.maps.LatLng(46.0001577,6.7202198,424)});
-    //Create drawing manager panel
+    //import du menu dessin
     var drawingManager = new google.maps.drawing.DrawingManager({
 	drawingControlOptions: {
       position: google.maps.ControlPosition.TOP_CENTER,
@@ -78,7 +79,7 @@ function initialize()
     }
 	});
     drawingManager.setMap(map);
-    // event creation of polygon completed 
+    // event creation du polygone terminé
     google.maps.event.addDomListener(drawingManager, 'polygoncomplete', function(polygon) {
         polygon.setEditable(false);
         save_coordinates_to_array(polygon);
