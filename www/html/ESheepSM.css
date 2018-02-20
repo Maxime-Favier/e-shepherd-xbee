@@ -1,0 +1,110 @@
+body { 
+    background-image: url('img/logo_feutre.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+p
+{
+    color: black;
+}
+h1
+{
+    color: black;
+    text-align: center;
+}
+
+
+/*--------header-------*/
+header
+{
+    padding:0px,0px,0px,0px ;
+    color: black;
+    text-align : left;
+    margin-bottom: 1px ;
+    display : flex;
+    align-items : center;
+    flex-direction: row;
+    justify-content:space-between;
+    height: 100px;
+    background: grey;
+}
+header h1
+{
+    color: white;
+    text-align: left;
+}
+header h2
+{
+    color: white;
+    text-align: left;
+}
+element
+{
+    margin:20px,10px,10px,10px ;
+}
+
+/*--------nav-------*/
+nav
+{
+    color: black;
+    float: right;
+    display : flex;
+    flex-direction: row;
+    text-align : left;
+    padding-left:42%;
+}
+
+
+/*--------footer-------*/
+footer
+{
+    color: black;
+    text-align : center;
+    margin-top:25%;
+}
+
+
+
+
+/*-------------Login---------*/
+#login_button
+{
+   /*width: 20em;  height: 2em;*/
+    font-size : x-large;
+    font-family: Arial, Verdana, sans-serif;
+}
+.login
+{
+    display : flex;
+    align-items : center;
+    flex-direction: column;
+    width: 100%; 
+    heigth:100%;    
+    margin-top: 100px ;
+    margin-bottom: 100px ;
+    text-align : center;
+    font-size : x-large;
+    font-family: Arial, Verdana, sans-serif;
+    text-align : center;
+}
+.log_s1{
+    
+}
+
+
+.log_s2{
+    position: absolute;
+    left: 0;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+}
+
+/*------------map---------*/
+#map {
+    height: 5px;
+    width: 100%;
+}
+.imga{
+	margin-left:5%;
