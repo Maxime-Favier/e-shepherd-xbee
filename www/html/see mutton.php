@@ -4,6 +4,7 @@
 try
 {
 	$bdd = new PDO('mysql:host=localhost;dbname=maxime1_favier;charset=utf8', 'root', 'root');
+	// $sql = "select `idmoutton`, max(`datation`) from positions group by `idmoutton`";
 }
 catch (Exception $e)
 {
@@ -46,13 +47,13 @@ catch (Exception $e)
                    <a href="ESheepLogon.html"><img src = "img/SearchSheep.png" alt="Find"/></a>
                 </div>
                 <div class="navelement">
-                  <a href="#"><img src = "img/Geoloc.png" alt="Map"</a>
+                  <a href="#"><img src = "img/Geoloc.png" alt="Map"/></a>
                </div>
             </nav>
      </header>
      
      
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvxBydr2xpzERF4kQe7jaWHztxKqdktVw&libraries=drawing"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=xxxxxxxxxxxxxxxxxx&libraries=drawing"></script>
 		<div id="Carte"></div>
 
 		<script>
@@ -66,34 +67,52 @@ catch (Exception $e)
 				}
 				var maCarte = new google.maps.Map( document.getElementById("Carte"), optionsCarte );
 				
-				
 				var zoneMarqueurs = new google.maps.LatLngBounds();
 				// tableau des points
 				var tableauMarqueurs = [
 					<?php
-						$reponse1 = $bdd->query('SELECT * FROM `positions`');
+						$reponse1 = $bdd->query('SELECT max(`datation`), idmoutton, lat, lng FROM positions GROUP BY `idmoutton`');
 						while ($donnees1 = $reponse1->fetch())
 						{
 					?>
-					{ lat:<?php echo $donnees1['lat'];?>,  lng:<?php echo $donnees1['lng'];?>},
+					{ lat:<?php echo $donnees1['lat'];?>,  lng:<?php echo $donnees1['lng'];?>, title:"<?php echo $donnees1['idmoutton'];?>", refresh:"<?php echo $donnees1['max(`datation`)'];?>", content:"<h1>Sheep n° <?php echo $donnees1['idmoutton'];?></h1><p>Last position refresh <?php echo $donnees1['max(`datation`)'];?></p><p><b>POSITION</b>: latitude: <?php echo $donnees1['lat'];?>, longitude: <?php echo $donnees1['lng'];?>."},
 					<?php
 						}
 						$reponse1->closeCursor();
 					?>
 				]
+				console.log(tableauMarqueurs[1]["content"]);
+				var infoWindow = new google.maps.InfoWindow();
 				// boucle de parcour du tableau des mouttons
 				for( var i = 0, I = tableauMarqueurs.length; i < I; i++ ) {
 					// tableau de lat lng d'un seul point
 					var latlng = tableauMarqueurs[i],
 						latitude = latlng["lat"],
 						longitude = latlng["lng"];
+						title = latlng["title"];
+						refresh = latlng["refresh"];
 					// définition et ajout des points sur la carte
+					var contenuInfoBulle =	'<h1>Sheep n°'+ title +'</h1>' +	
+						'<p>Last position refresh '+ refresh +'</p>' +
+						'<p><b>POSITION</b>: latitude:'+ latitude +', longitude:'+ longitude +'.';
+
 					var optionsMarqueur = {
 						map: maCarte,
-						position: new google.maps.LatLng( latitude, longitude )	
+						position: new google.maps.LatLng( latitude, longitude),	
+						title: "Sheep n° "+ title,
 					};
+					
 					var marqueur = new google.maps.Marker( optionsMarqueur );
 					zoneMarqueurs.extend( marqueur.getPosition() );
+					console.log(tableauMarqueurs[i]["content"]);
+					
+					(function(marker, data) {
+						// Attaching a click event to the current marker
+						google.maps.event.addListener(marker, "click", function(e) {
+							infoWindow.setContent(data);
+							infoWindow.open(maCarte, marker);
+						});
+					})(marqueur, tableauMarqueurs[i]["content"]);
 				}
 				// centre la carte sur les points
 				maCarte.fitBounds( zoneMarqueurs );
