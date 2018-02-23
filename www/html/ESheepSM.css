@@ -81,8 +81,8 @@ footer
     flex-direction: column;
     width: 100%; 
     heigth:100%;    
-    margin-top: 100px ;
-    margin-bottom: 100px ;
+    margin-top: 0px ;
+    margin-bottom: 1000px ;
     text-align : center;
     font-size : x-large;
     font-family: Arial, Verdana, sans-serif;
@@ -96,7 +96,7 @@ footer
 .log_s2{
     position: absolute;
     left: 0;
-    top: 40%;
+    top: 30%;
     width: 100%;
     text-align: center;
 }

@@ -44,15 +44,14 @@ echo "done";
 
 <body>
 
-  <form id="zone" action="lisnter.php" method="post">
-    <input id="lat" type="text" name="lat" value="a">
-    <input id="lng" type="text" name="lng" value="a">
-    <input id="mdp" type="text" name="mdp" value="a">
-    <input id="idmoutton" type="text" name="idmoutton" value="a">
-    <input type="submit" value="Connexion"/>
-  </form>
+<form id="zone" action="lisnter.php" method="post">
+  <input id="lat" type="text" name="lat" value="a">
+  <input id="lng" type="text" name="lng" value="a">
+  <input id="mdp" type="text" name="mdp" value="a">
+  <input id="idmoutton" type="text" name="idmoutton" value="a">
+  <input type="submit" value="Connexion"/>
+</form>
+
 
 </body>
-
-</html>
 
