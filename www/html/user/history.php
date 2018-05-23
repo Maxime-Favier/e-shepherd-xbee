@@ -12,7 +12,7 @@ catch (Exception $e)
 session_start(); 
 	
 if(!isset($_SESSION['iduser'])){
-	header('Location: ../index.php');
+	header('Location: ../index.html');
 }
 ?>
 <html lang="fr">
@@ -43,7 +43,7 @@ if(!isset($_SESSION['iduser'])){
             <img class="imga" src = "../img/logo_small.png" alt="logo"/>
     	  </div>
             <div class="element">
-               <h1>E-Sheep</h1>
+               <h1>e-Shepherd</h1>
                <h3>Stay in touch with your livestock</h3>
             </div>
            <nav>

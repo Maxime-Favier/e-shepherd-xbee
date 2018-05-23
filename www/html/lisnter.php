@@ -23,12 +23,17 @@ elseif($_POST['mdp'] !== "2788223e73728d8339cbc5366945c90b0a394bfa6bafe1426cc5eb
 }
 else
 {
-	$req = $bdd->prepare('INSERT INTO positions (lat, lng, idmoutton, datation) VALUES (:lat, :lng, :idmoutton, NOW())');
+	$lat = htmlspecialchars($_POST['lat']);
+	$lng = htmlspecialchars($_POST['lng']);
+	$req = $bdd->prepare("INSERT INTO positions (lat, lng, idmoutton, datation, pos) VALUES (:lat, :lng, :idmoutton, NOW(), GeomFromText(:location))");
 	$req->execute(array(
 		'lat' => htmlspecialchars($_POST['lat']),
 		'lng' => htmlspecialchars($_POST['lng']),
 		'idmoutton' => htmlspecialchars($_POST['idmoutton']),
+		'location' => 'POINT('.$lat." ".$lng.')'
 	));
+	echo "proccessed";
+	echo 'POINT('.$lat." ".$lng.')';
 }
 echo "done";
 ?>

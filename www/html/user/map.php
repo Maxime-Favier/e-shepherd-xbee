@@ -12,7 +12,7 @@ catch (Exception $e)
 session_start(); 
 	
 if(!isset($_SESSION['iduser'])){
-	header('Location: ../index.php');
+	header('Location: ../index.html');
 }
 ?>
 
@@ -44,7 +44,7 @@ if(!isset($_SESSION['iduser'])){
             <img class="imga" src = "../img/logo_small.png" alt="logo"/>
     	  </div>
             <div class="element">
-               <h1>E-Sheep</h1>
+               <h1>e-Shepherd</h1>
                <h3>Stay in touch with your livestock</h3>
             </div>
            <nav>
@@ -94,7 +94,7 @@ if(!isset($_SESSION['iduser'])){
 				]
 				console.log(tableauMarqueurs[1]["content"]);
 				var infoWindow = new google.maps.InfoWindow();
-				// boucle de parcour du tableau des mouttons
+				// boucle de parcours du tableau des mouttons
 				for( var i = 0, I = tableauMarqueurs.length; i < I; i++ ) {
 					// tableau de lat lng d'un seul point
 					var latlng = tableauMarqueurs[i],

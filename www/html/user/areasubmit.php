@@ -9,13 +9,13 @@ catch (Exception $e)
 }
 session_start(); 
 if(!isset($_SESSION['iduser'])){
-	header('Location: ../index.php');
+	header('Location: ../index.html');
 }
 
 if(!isset($_POST['array1']))
 {
 	echo 'remplissez tous les champs';
-	header('Location: user/home.php?erreur=1');
+	header('Location: home.php?erreur=1');
 }
 else
 {
